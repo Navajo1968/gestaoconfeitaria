@@ -1,0 +1,63 @@
+CREATE TABLE tb_cliente
+( 
+	id_cliente           SERIAL PRIMARY KEY,
+	nome_fantasia        VARCHAR(60),
+	pessoa_fisica_juridica CHAR(1),
+	razao_social         VARCHAR(60),
+	cpf                  INTEGER,
+	cnpj                 BIGINT,
+	inscricao_estadual   VARCHAR(30),
+	telefone             VARCHAR(13),
+	email                VARCHAR(50),
+	rua_endereco         VARCHAR(50),
+	num_endereco         CHAR(10),
+	bairro_endereco      CHAR(40),
+	cidade_endereco      VARCHAR(50),
+	estado_endereco      CHAR(2),
+	cep_endereco         CHAR(8),
+	compl_endereco       VARCHAR(30),
+	instragram           VARCHAR(20),
+	site                 VARCHAR(100),
+	dt_abertura          DATE,
+	status_cadastro      CHAR(10),
+	des_banco            VARCHAR(30),
+	agencia_banco        VARCHAR(15),
+	conta_banco          VARCHAR(15),
+	chave_pix            VARCHAR(50),
+	flg_consentimento    BOOLEAN,
+	dt_hr_inclusao       TIMESTAMP,
+	dt_hr_alteracao      TIMESTAMP
+);
+
+CREATE TABLE tb_cliente_atacado
+( 
+	id_cliente           INTEGER NOT NULL,
+	dt_hr_inclusao       TIMESTAMP,
+	dt_hr_alteracao      TIMESTAMP,
+	dt_assinatura        DATE,
+	des_termos_contrato  VARCHAR(20),
+	seg_funcionamento    BOOLEAN,
+	ter_funcionamento    BOOLEAN,
+	qua_funcionamento    BOOLEAN,
+	qui_funcionamento    BOOLEAN,
+	sex_funcionamento    BOOLEAN,
+	sab_funcionamento    BOOLEAN,
+	dom_funcionamento    BOOLEAN,
+	seg_hr_abertura      TIME,
+	ter_hr_abertura      TIME,
+	qua_hr_abertura      TIME,
+	qui_hr_abertura      TIME,
+	sex_hr_abertura      TIME,
+	sab_hr_abertura      TIME,
+	dom_hr_abertura      TIME,
+	seg_hr_fechamento    TIME,
+	ter_hr_fechamento    TIME,
+	qua_hr_fechamento    TIME,
+	qui_hr_fechamento    TIME,
+	sex_hr_fechamento    TIME,
+	sab_hr_fechamento    TIME,
+	dom_hr_fechamento    TIME,
+	PRIMARY KEY (id_cliente)
+);
+
+-- Additional adjusted tables should follow similar syntax for PostgreSQL replacing specific T-SQL features.
