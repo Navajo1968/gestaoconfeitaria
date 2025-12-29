@@ -2,10 +2,9 @@ package com.gestaoconfeitaria.ui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainScreen extends JFrame {
+
     public MainScreen() {
         // Configurar a janela principal
         setTitle("Gestão de Confeitaria - Tela Principal");
@@ -20,14 +19,13 @@ public class MainScreen extends JFrame {
         // Menu "Cadastro"
         JMenu menuCadastro = new JMenu("Cadastro");
         JMenuItem menuItemUsuario = new JMenuItem("Usuário");
-        menuItemUsuario.addActionListener(this::abrirTelaCadastroUsuario); // Chama a tela de cadastro
+        menuItemUsuario.addActionListener(event -> abrirTelaCadastroUsuario());  // Chamada corrigida
         menuCadastro.add(menuItemUsuario);
 
         // Menu "Sair"
         JMenu menuSair = new JMenu("Sair");
         JMenuItem menuItemSair = new JMenuItem("Fechar");
         menuItemSair.addActionListener(e -> {
-            // Confirmação de saída
             int confirm = JOptionPane.showConfirmDialog(this, "Deseja realmente sair?", "Confirmar Saída", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 System.exit(0); // Fecha a aplicação
@@ -42,10 +40,18 @@ public class MainScreen extends JFrame {
         // Configurar a barra de menu na janela
         setJMenuBar(menuBar);
 
-        // Conteúdo principal (inicialmente vazio)
+        // Conteúdo principal (bem-vindo)
         JLabel labelBemVindo = new JLabel("Bem-vindo ao Sistema de Gestão de Confeitaria!", SwingConstants.CENTER);
         labelBemVindo.setFont(new Font("Arial", Font.BOLD, 16));
         add(labelBemVindo, BorderLayout.CENTER);
+    }
+
+    private void abrirTelaCadastroUsuario() {
+        // Abrir a tela de cadastro de usuário
+        SwingUtilities.invokeLater(() -> {
+            CadastroUsuarioScreen telaCadastro = new CadastroUsuarioScreen();
+            telaCadastro.setVisible(true);
+        });
     }
 
     public static void abrirTelaPrincipal() {
@@ -56,6 +62,6 @@ public class MainScreen extends JFrame {
     }
 
     public static void main(String[] args) {
-        abrirTelaPrincipal(); // Somente para teste independente
+        abrirTelaPrincipal(); // Somente para testes
     }
 }
