@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -107,11 +109,14 @@ public class LoginScreen extends JFrame {
         String email = emailField.getText();
         String senha = new String(passwordField.getPassword());
 
+        // Gere o hash da senha usando o método gerarHashSenha
+        String senhaHash = gerarHashSenha(senha);
+
         try (Connection connection = DatabaseConnection.connect()) {
             String sql = "SELECT * FROM tb_usuario WHERE email = ? AND senha_hash = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, email);
-            statement.setString(2, senha);
+            statement.setString(2, senhaHash);
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -124,6 +129,22 @@ public class LoginScreen extends JFrame {
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Erro ao autenticar: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // Método para gerar o hash da senha (mesmo usado no cadastro)
+    private String gerarHashSenha(String senha) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(senha.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
