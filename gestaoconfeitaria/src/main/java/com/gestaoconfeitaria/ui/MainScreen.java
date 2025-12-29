@@ -21,8 +21,11 @@ public class MainScreen extends JFrame {
         JMenu menuCadastro = new JMenu("Cadastro");
         JMenuItem menuItemUsuario = new JMenuItem("Usuário");
         menuItemUsuario.addActionListener(e -> {
-            // Aqui adicionaremos ações futuras para "Cadastrar Usuário"
-            JOptionPane.showMessageDialog(this, "Funcionalidade de 'Cadastrar Usuário' em desenvolvimento.");
+            // Abrir a tela de cadastro de usuário
+            SwingUtilities.invokeLater(() -> {
+                CadastroUsuarioScreen cadastroUsuarioScreen = new CadastroUsuarioScreen();
+                cadastroUsuarioScreen.setVisible(true);
+            });
         });
         menuCadastro.add(menuItemUsuario);
 
