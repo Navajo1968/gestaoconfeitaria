@@ -1,2 +1,3 @@
-2025/12/27-21:56:44.632 601c Creating DB C:\Users\rodri\Documents\GitHub\GestaoConfeitaria\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata since it was missing.
-2025/12/27-21:56:44.645 601c Reusing MANIFEST C:\Users\rodri\Documents\GitHub\GestaoConfeitaria\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2025/12/27-22:03:45.744 6ad0 Reusing MANIFEST C:\Users\rodri\Documents\GitHub\GestaoConfeitaria\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2025/12/27-22:03:45.745 6ad0 Recovering log #3
+2025/12/27-22:03:45.746 6ad0 Reusing old log C:\Users\rodri\Documents\GitHub\GestaoConfeitaria\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db\metadata/000003.log 
