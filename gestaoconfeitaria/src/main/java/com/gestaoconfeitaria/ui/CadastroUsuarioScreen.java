@@ -3,9 +3,13 @@ package com.gestaoconfeitaria.ui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class MainScreen extends JFrame {
+// Corrigir nome para coincidir com o arquivo
+public class CadastroUsuarioScreen extends JFrame {
 
-    public MainScreen() {
+    // Declarar serialVersionUID para evitar o aviso.
+    private static final long serialVersionUID = 1L;
+
+    public CadastroUsuarioScreen() {
         // Configuração inicial da janela
         setTitle("Gestão de Confeitaria - Tela Principal");
         setSize(800, 600);
@@ -60,7 +64,7 @@ public class MainScreen extends JFrame {
     // Método estático para inicialização da tela principal
     public static void abrirTelaPrincipal() {
         SwingUtilities.invokeLater(() -> {
-            MainScreen mainScreen = new MainScreen();
+            CadastroUsuarioScreen mainScreen = new CadastroUsuarioScreen();
             mainScreen.setVisible(true);
         });
     }
